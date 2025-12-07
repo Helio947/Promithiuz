@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Library - Promithius AI</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Browse our library of 125 AI prompts for 25 popular apps. Save hours every week with our detailed step-by-step systems.">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Promithius<span>AI</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="library.html" class="active">Library</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="submit.html">Submit</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Library Hero Section -->
+    <section class="hero" style="background-image: url('img/hero-bg.jpg');">
+        <div class="container">
+            <h1>AI Prompt Library</h1>
+            <p>Discover 125 detailed step-by-step systems for 25 popular apps. Transform your workflow and save hours every week!</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="container">
+        <div class="filter-tabs">
+            <div class="filter-tab active" data-filter="all">All</div>
+            <div class="filter-tab" data-filter="Productivity">Productivity</div>
+            <div class="filter-tab" data-filter="Social">Social</div>
+            <div class="filter-tab" data-filter="Communication">Communication</div>
+        </div>
+
+        <!-- Apps Grid -->
+        <div class="apps-grid" id="apps-container">
+            <!-- Apps will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Promithius AI</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li><a href="submit.html">Submit</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Popular Apps</h3>
+                    <ul class="footer-links">
+                        <li><a href="library.html">Gmail</a></li>
+                        <li><a href="library.html">Slack</a></li>
+                        <li><a href="library.html">Instagram</a></li>
+                        <li><a href="library.html">TikTok</a></li>
+                        <li><a href="library.html">ChatGPT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="library.html">Productivity</a></li>
+                        <li><a href="library.html">Social</a></li>
+                        <li><a href="library.html">Communication</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">X (Twitter)</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Promithius AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/gamification.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load app data from JSON
+            fetch('data/prompts.json')
+                .then(response => response.json())
+                .then(data => {
+                    const appsContainer = document.getElementById('apps-container');
+                    
+                    // Generate app cards
+                    data.prompts.forEach(app => {
+                        const appCard = document.createElement('div');
+                        appCard.className = 'app-card';
+                        appCard.setAttribute('data-category', app.category);
+                        
+                        // Create app header
+                        const appHeader = document.createElement('div');
+                        appHeader.className = 'app-header';
+                        
+                        const appIcon = document.createElement('div');
+                        appIcon.className = `app-icon ${app.app.toLowerCase()}-icon`;
+                        appIcon.textContent = app.icon;
+                        
+                        const appName = document.createElement('div');
+                        appName.className = 'app-name';
+                        appName.textContent = app.app;
+                        
+                        appHeader.appendChild(appIcon);
+                        appHeader.appendChild(appName);
+                        
+                        // Create app description
+                        const appDescription = document.createElement('div');
+                        appDescription.className = 'app-description';
+                        appDescription.textContent = app.description;
+                        
+                        // Create prompt list
+                        const promptList = document.createElement('div');
+                        promptList.className = 'prompt-list';
+                        
+                        // Add free prompt
+                        const promptFree = document.createElement('div');
+                        promptFree.className = 'prompt-free';
+                        
+                        const promptFreeTitle = document.createElement('h4');
+                        promptFreeTitle.innerHTML = `${app.free_prompt.title} <span class="free-tag">FREE</span>`;
+                        
+                        const promptFreeDesc = document.createElement('p');
+                        promptFreeDesc.textContent = app.free_prompt.objective;
+                        
+                        const promptButtonsContainer = document.createElement('div');
+                        promptButtonsContainer.className = 'prompt-buttons';
+                        
+                        const promptFreeBtn = document.createElement('button');
+                        promptFreeBtn.className = 'copy-btn';
+                        promptFreeBtn.setAttribute('data-prompt', app.free_prompt.objective);
+                        promptFreeBtn.textContent = 'Copy Prompt';
+                        
+                        const viewPromptBtn = document.createElement('button');
+                        viewPromptBtn.className = 'view-prompt-btn';
+                        viewPromptBtn.setAttribute('data-title', app.free_prompt.title);
+                        viewPromptBtn.setAttribute('data-prompt', app.free_prompt.objective);
+                        viewPromptBtn.setAttribute('data-app', app.app);
+                        viewPromptBtn.textContent = 'View Prompt';
+                        
+                        promptButtonsContainer.appendChild(promptFreeBtn);
+                        promptButtonsContainer.appendChild(viewPromptBtn);
+                        
+                        promptFree.appendChild(promptFreeTitle);
+                        promptFree.appendChild(promptFreeDesc);
+                        promptFree.appendChild(promptButtonsContainer);
+                        
+                        promptList.appendChild(promptFree);
+                        
+                        // Add paid prompts
+                        app.paid_prompts.forEach(paid => {
+                            const promptPaid = document.createElement('div');
+                            promptPaid.className = 'prompt-paid';
+                            
+                            const promptPaidTitle = document.createElement('h4');
+                            promptPaidTitle.innerHTML = `${paid.title} <span class="paid-tag">PREMIUM</span>`;
+                            
+                            const promptPaidDesc = document.createElement('p');
+                            promptPaidDesc.textContent = paid.teaser;
+                            
+                            promptPaid.appendChild(promptPaidTitle);
+                            promptPaid.appendChild(promptPaidDesc);
+                            
+                            promptList.appendChild(promptPaid);
+                        });
+                        
+                        // Add unlock button
+                        const unlockBtn = document.createElement('a');
+                        unlockBtn.className = 'unlock-btn';
+                        unlockBtn.href = 'account.html';
+                        unlockBtn.textContent = 'Unlock 4 More Prompts—Reclaim Your Time!';
+                        
+                        // Assemble app card
+                        appCard.appendChild(appHeader);
+                        appCard.appendChild(appDescription);
+                        appCard.appendChild(promptList);
+                        appCard.appendChild(unlockBtn);
+                        
+                        // Add to container
+                        appsContainer.appendChild(appCard);
+                    });
+                    
+                    // Initialize copy buttons
+                    initCopyButtons();
+                    
+                    // Initialize filter tabs
+                    initFilterTabs();
+                })
+                .catch(error => console.error('Error loading prompts:', error));
+        });
+    </script>
+</body>
+</html>

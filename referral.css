@@ -1,0 +1,64 @@
+.referral-section {
+  margin-top: 30px;
+}
+
+.referral-link-container {
+  display: flex;
+  margin: 20px 0;
+}
+
+.referral-link-container input {
+  flex: 1;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.referral-link-container button {
+  white-space: nowrap;
+}
+
+.share-progress {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.share-progress h4 {
+  margin-bottom: 15px;
+}
+
+.referral-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.referral-banner p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.close-banner {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.note {
+  font-size: 14px;
+  color: var(--light-text);
+  font-style: italic;
+  margin-top: 10px;
+}

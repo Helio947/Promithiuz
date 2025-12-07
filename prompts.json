@@ -1,0 +1,270 @@
+{
+  "prompts": [
+    {
+      "app": "Gmail",
+      "category": "Productivity",
+      "icon": "📧",
+      "description": "End Email Chaos Forever!",
+      "free_prompt": {
+        "title": "Sort Inbox by Priority",
+        "objective": "Sort the user's Gmail inbox by tagging emails with \"Urgent\" in the subject line with a \"Priority\" label.",
+        "tools": "Gmail (web interface)",
+        "credentials": "[User provides Gmail login email and password]",
+        "preconditions": "User is logged into Gmail via the web interface (https://mail.google.com). A \"Priority\" label exists in Gmail (if not, create it).",
+        "steps": [
+          "Open a browser and navigate to https://mail.google.com.",
+          "If not logged in, enter [user-provided email] in the email field, click \"Next,\" enter [user-provided password], and click \"Sign In.\"",
+          "On the Gmail homepage, locate the search bar at the top of the page.",
+          "In the search bar, type: Urgent -in:spam -in:trash.",
+          "Press the \"Enter\" key to execute the search.",
+          "Verify that the search results show emails with \"Urgent\" in the subject line (exclude spam/trash).",
+          "On the left sidebar, locate the \"Labels\" section (scroll down if needed).",
+          "If \"Priority\" label does not exist, click \"Create new label\" at the bottom of the Labels section, type \"Priority\" in the dialog box, and click \"Create.\"",
+          "Above the search results, click the checkbox to select all visible emails (up to 50 per page).",
+          "Click the \"Labels\" icon (a tag shape) in the toolbar above the email list.",
+          "In the dropdown, select \"Priority\" and click \"Apply.\"",
+          "If more than 50 emails are found, click \"Select all conversations that match this search\" at the top of the results, then repeat steps 10-11.",
+          "Confirm the \"Priority\" label is applied by checking the left sidebar for the labeled emails."
+        ],
+        "error_handling": [
+          "If login fails, notify user via email: \"Gmail login failed. Check credentials: [user-provided email].\"",
+          "If search returns no results, notify user: \"No emails with 'Urgent' found in inbox.\"",
+          "If \"Priority\" label creation fails, notify user: \"Failed to create Priority label. Create manually and retry.\""
+        ],
+        "output_format": "Email user: \"Gmail inbox sorted. [X] emails tagged with Priority label. Check Gmail: https://mail.google.com.\"",
+        "time_estimate": "3-5 minutes"
+      },
+      "paid_prompts": [
+        {
+          "title": "Draft Replies",
+          "teaser": "Write Emails in Seconds!"
+        },
+        {
+          "title": "Schedule Sends",
+          "teaser": "Never Miss a Deadline!"
+        },
+        {
+          "title": "Archive Old",
+          "teaser": "Declutter Your Inbox Now!"
+        },
+        {
+          "title": "Extract Contacts",
+          "teaser": "Build Your Network Fast!"
+        }
+      ]
+    },
+    {
+      "app": "Google Sheets",
+      "category": "Productivity",
+      "icon": "📊",
+      "description": "Finish Reports in a Flash!",
+      "free_prompt": {
+        "title": "Auto-Fill Daily Report",
+        "objective": "Automatically populate a daily report template with data from various sources.",
+        "tools": "Google Sheets (web interface)",
+        "credentials": "[User provides Google account login email and password]",
+        "preconditions": "User has a Google Sheets template for daily reporting. User has access to the data sources needed for the report.",
+        "steps": [
+          "Open a browser and navigate to https://sheets.google.com.",
+          "If not logged in, enter [user-provided email] in the email field, click \"Next,\" enter [user-provided password], and click \"Sign In.\"",
+          "Locate and open the daily report template from the Google Sheets homepage.",
+          "Click on cell A1 to begin the data entry process.",
+          "Enter today's date in the designated date field (typically near the top of the report).",
+          "Navigate to the data source tabs or external sources as needed.",
+          "Copy the required data from the source.",
+          "Paste the data into the appropriate cells in the report template.",
+          "Repeat steps 6-8 for all required data points.",
+          "Once all data is entered, check for any calculation errors or missing information.",
+          "Format the report as needed (adjust column widths, apply conditional formatting, etc.).",
+          "Click on \"File\" > \"Download\" > \"PDF Document\" to create a PDF version of the report.",
+          "Click on \"Share\" in the top-right corner to share the report with stakeholders."
+        ],
+        "error_handling": [
+          "If login fails, notify user: \"Google Sheets login failed. Check credentials: [user-provided email].\"",
+          "If template cannot be found, notify user: \"Daily report template not found. Please check the template name or create a new one.\"",
+          "If data sources are unavailable, notify user: \"Unable to access data sources. Please check permissions and try again.\""
+        ],
+        "output_format": "Email user: \"Daily report completed and saved at [Google Sheets URL]. PDF version downloaded to your computer.\"",
+        "time_estimate": "5-10 minutes"
+      },
+      "paid_prompts": [
+        {
+          "title": "Track Expenses",
+          "teaser": "Control Your Finances!"
+        },
+        {
+          "title": "Graph Trends",
+          "teaser": "Spot Insights Instantly!"
+        },
+        {
+          "title": "Sync Drive",
+          "teaser": "Seamless Data Flow!"
+        },
+        {
+          "title": "Clean Duplicates",
+          "teaser": "Perfect Data, Always!"
+        }
+      ]
+    },
+    {
+      "app": "Slack",
+      "category": "Communication",
+      "icon": "💬",
+      "description": "Keep Your Team in Sync!",
+      "free_prompt": {
+        "title": "Channel Message Poster",
+        "objective": "Create and post formatted messages to multiple Slack channels efficiently.",
+        "tools": "Slack (web or desktop app)",
+        "credentials": "[User provides Slack workspace URL and login credentials]",
+        "preconditions": "User has posting permissions in the target Slack channels. User has the message content prepared.",
+        "steps": [
+          "Open a browser and navigate to [user's Slack workspace URL] or open the Slack desktop app.",
+          "If not logged in, enter [user-provided email] and [user-provided password], then click \"Sign In.\"",
+          "Once in Slack, click on the \"+\" icon next to \"Drafts\" in the left sidebar.",
+          "In the new draft area, compose your message with the desired formatting.",
+          "Use Markdown for basic formatting: *bold* for bold text, _italic_ for italics, and `code` for code snippets.",
+          "For more advanced formatting, click the \"Aa\" formatting button in the message composer.",
+          "Add any necessary links, mentions (@username), or channel mentions (#channel).",
+          "If including attachments, click the \"+\" icon in the message composer and select the file to upload.",
+          "Once the message is composed, save it as a draft by clicking \"Save as draft.\"",
+          "Navigate to the first target channel in the left sidebar.",
+          "Click in the message field, then click the \"...\" menu and select \"Your drafts.\"",
+          "Select your saved draft, which will populate the message field.",
+          "Review the message, make any channel-specific adjustments, then click \"Send.\"",
+          "Repeat steps 10-13 for each additional target channel."
+        ],
+        "error_handling": [
+          "If login fails, notify user: \"Slack login failed. Check workspace URL and credentials.\"",
+          "If user lacks posting permissions, notify user: \"You don't have permission to post in [channel name]. Request access from a workspace admin.\"",
+          "If draft saving fails, notify user: \"Unable to save draft. Try copying your message text to a local document as backup.\""
+        ],
+        "output_format": "Notification in Slack: \"Message successfully posted to [X] channels: [list of channel names].\"",
+        "time_estimate": "3-7 minutes"
+      },
+      "paid_prompts": [
+        {
+          "title": "Task Reminder",
+          "teaser": "Never Miss a Deadline!"
+        },
+        {
+          "title": "Thread Summarizer",
+          "teaser": "Get the Gist Fast!"
+        },
+        {
+          "title": "File Uploader",
+          "teaser": "Share Files Easily!"
+        },
+        {
+          "title": "Status Setter",
+          "teaser": "Show Your Vibe!"
+        }
+      ]
+    },
+    {
+      "app": "Instagram",
+      "category": "Social",
+      "icon": "📸",
+      "description": "Make Your Posts Pop!",
+      "free_prompt": {
+        "title": "Caption Generator",
+        "objective": "Generate engaging captions for Instagram posts to increase engagement and followers.",
+        "tools": "Instagram (mobile app or web interface)",
+        "credentials": "[User provides Instagram login credentials]",
+        "preconditions": "User has photos/videos ready to post. User knows their target audience and post theme.",
+        "steps": [
+          "Open the Instagram app on your mobile device or navigate to https://www.instagram.com on a web browser.",
+          "Log in with [user-provided username] and [user-provided password].",
+          "Click the \"+\" icon (mobile) or the \"Create\" button (web) to start creating a new post.",
+          "Select the photo or video you want to post.",
+          "Apply filters or edits as desired, then click \"Next.\"",
+          "On the caption screen, consider your post's purpose (promotional, educational, entertaining, etc.).",
+          "Draft a caption that includes: a hook (first line to grab attention), main content (2-3 sentences about the image/video), and a call-to-action (question or instruction).",
+          "Add 3-5 relevant hashtags that mix popular tags (#love, #photooftheday) with niche tags specific to your content.",
+          "Include emojis strategically to break up text and add personality (2-3 emojis maximum).",
+          "If tagging other accounts, click \"Tag People\" and add relevant accounts.",
+          "If adding a location, click \"Add Location\" and select the appropriate place.",
+          "Review your caption for spelling/grammar errors and ensure it aligns with your brand voice.",
+          "Click \"Share\" to publish your post with the engaging caption."
+        ],
+        "error_handling": [
+          "If login fails, notify user: \"Instagram login failed. Check credentials or try again later due to possible temporary restrictions.\"",
+          "If post upload fails, notify user: \"Unable to upload media. Check file format (JPG, PNG for images; MP4 for videos) and size (maximum 100MB for videos).\"",
+          "If hashtags aren't working, notify user: \"Instagram may be limiting hashtag use. Try reducing the number of hashtags or check if any are banned.\""
+        ],
+        "output_format": "Instagram post published with optimized caption. Analytics available in Instagram Insights after 24 hours.",
+        "time_estimate": "5-10 minutes"
+      },
+      "paid_prompts": [
+        {
+          "title": "Hashtag Picker",
+          "teaser": "Boost Your Reach!"
+        },
+        {
+          "title": "Story Planner",
+          "teaser": "Shine Every Day!"
+        },
+        {
+          "title": "Post Scheduler",
+          "teaser": "Post Like a Pro!"
+        },
+        {
+          "title": "DM Responder",
+          "teaser": "Never Miss a Fan!"
+        }
+      ]
+    },
+    {
+      "app": "TikTok",
+      "category": "Social",
+      "icon": "🎵",
+      "description": "Make Your Videos Go Viral!",
+      "free_prompt": {
+        "title": "Video Caption Generator",
+        "objective": "Create attention-grabbing captions for TikTok videos to maximize views and engagement.",
+        "tools": "TikTok (mobile app)",
+        "credentials": "[User provides TikTok login credentials]",
+        "preconditions": "User has recorded and edited their TikTok video. User understands their target audience.",
+        "steps": [
+          "Open the TikTok app on your mobile device.",
+          "Log in with [user-provided username] and [user-provided password].",
+          "Tap the \"+\" button at the bottom of the screen to create a new video.",
+          "Upload your pre-recorded video or record a new one in the app.",
+          "Edit your video with effects, filters, and sounds as desired, then tap \"Next.\"",
+          "On the caption screen, start with a hook that creates curiosity or promises value (e.g., \"This hack changed my life...\").",
+          "Keep the caption short and punchy (40-80 characters is ideal).",
+          "Include 1-2 trending hashtags related to your content (check the Discover page for current trends).",
+          "Add 1-2 niche hashtags specific to your content category.",
+          "Include the hashtag #fyp or #foryoupage to increase chances of appearing on the For You Page.",
+          "Add 2-3 relevant emojis to make your caption visually appealing.",
+          "If applicable, tag relevant accounts by typing \"@\" followed by their username.",
+          "Review your caption for typos and clarity, then tap \"Post\" to publish your TikTok."
+        ],
+        "error_handling": [
+          "If login fails, notify user: \"TikTok login failed. Check credentials or try again later.\"",
+          "If video upload fails, notify user: \"Video upload failed. Ensure your video is between 15-60 seconds and under 287.6MB.\"",
+          "If hashtags aren't working, notify user: \"Some hashtags may be restricted. Try alternative hashtags or reduce the total number.\""
+        ],
+        "output_format": "TikTok video published with optimized caption. Check TikTok Analytics after 24-48 hours to measure performance.",
+        "time_estimate": "3-5 minutes"
+      },
+      "paid_prompts": [
+        {
+          "title": "Trend Scanner",
+          "teaser": "Ride the Next Wave!"
+        },
+        {
+          "title": "Hashtag Picker",
+          "teaser": "Get Seen by Millions!"
+        },
+        {
+          "title": "Comment Responder",
+          "teaser": "Engage Your Fans!"
+        },
+        {
+          "title": "Upload Scheduler",
+          "teaser": "Post at Peak Times!"
+        }
+      ]
+    }
+  ]
+}
