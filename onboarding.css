@@ -1,0 +1,69 @@
+.onboarding-overlay {
+  z-index: 1100; /* Higher than regular modals */
+}
+
+.onboarding-modal {
+  max-width: 600px;
+  text-align: center;
+}
+
+.onboarding-content {
+  padding: 20px;
+}
+
+.onboarding-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.app-selection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.app-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.app-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.app-checkbox label {
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.onboarding-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skip-link {
+  color: var(--light-text);
+  text-decoration: underline;
+}
+
+.skip-link:hover {
+  color: var(--primary-color);
+}
+
+.next-btn {
+  min-width: 100px;
+}
+
+.note {
+  font-size: 14px;
+  color: var(--light-text);
+  font-style: italic;
+  margin-top: 15px;
+}

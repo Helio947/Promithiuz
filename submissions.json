@@ -1,0 +1,25 @@
+{
+  "submissions": [
+    {
+      "name": "Jane",
+      "email": "jane@example.com",
+      "prompt": "Slack Trick: Use keyboard shortcuts (Ctrl+K) to quickly switch between channels without using the mouse.",
+      "date": "2025-04-01T10:15:30Z",
+      "upvotes": 15
+    },
+    {
+      "name": "Alex",
+      "email": "alex@example.com",
+      "prompt": "Gmail Hack: Create a filter that automatically labels emails from your boss as 'Priority' and stars them.",
+      "date": "2025-04-02T14:22:45Z",
+      "upvotes": 12
+    },
+    {
+      "name": "Sam",
+      "email": "sam@example.com",
+      "prompt": "Notion Tip: Use toggle lists to create collapsible sections for your project documentation.",
+      "date": "2025-04-03T09:45:12Z",
+      "upvotes": 8
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Promithius AI</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/onboarding.css">
+    <link rel="stylesheet" href="css/referral.css">
+    <meta name="description" content="Manage your Promithius AI account, track your points, level, and streak. Upgrade to premium to unlock all 125 AI prompts.">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Promithius<span>AI</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="account.html" class="active">Account</a></li>
+                    <li><a href="submit.html">Submit</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Account Section -->
+    <section class="container">
+        <h2 class="section-title">My Account</h2>
+        
+        <!-- Not Logged In State -->
+        <div id="not-logged-in" style="display: none;">
+            <div class="account-login">
+                <h3>Sign In to Access Your Account</h3>
+                <p>Track your progress, earn points, and unlock premium features.</p>
+                <form class="signup-form" onsubmit="handleSignUp(event)">
+                    <div class="form-group">
+                        <label for="login-name">Your Name</label>
+                        <input type="text" id="login-name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn">Sign Up Now—Start Winning!</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Logged In State -->
+        <div id="logged-in" class="account-container">
+            <!-- Account Sidebar -->
+            <div class="account-sidebar">
+                <div class="user-info">
+                    <div class="user-avatar">AI</div>
+                    <h3 class="user-name">AI Agent</h3>
+                    <p class="user-email">user@example.com</p>
+                    <div class="user-status free">Free Account</div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value points-value">0</div>
+                        <div class="stat-label">Agent Points—You're Crushing It!</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value level-value">Agent Rookie</div>
+                        <div class="stat-label">Level <span class="level-badge">★</span>—Rise to Greatness!</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value streak-value">0</div>
+                        <div class="stat-label">Day Streak—Don't Break Your Winning Streak!</div>
+                    </div>
+                    <div class="stat-card">
+                        <button class="refresh-btn">Refresh Points</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Account Main Content -->
+            <div class="account-main">
+                <!-- Verification Status Message -->
+                <div id="verification-status" class="account-section verification-pending" style="display: none;">
+                    <h3>Verification Pending</h3>
+                    <p>Verification pending—check your email to activate your account!</p>
+                    <p class="note">(Note: Email sending coming soon—account active for now.)</p>
+                </div>
+                
+                <div class="account-section">
+                    <h3>Prompts Used This Week</h3>
+                    <div class="prompts-used">
+                        <div class="prompts-count">5</div>
+                        <div class="prompts-limit">/ 25 Free—Keep Going!</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 20%;"></div>
+                    </div>
+                </div>
+                
+                <div class="account-section">
+                    <h3>Daily Schedule</h3>
+                    <ul class="daily-schedule">
+                        <li class="schedule-item">
+                            <div class="schedule-task">Sort Gmail Inbox</div>
+                            <div class="schedule-status">Completed</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-task">Post to Instagram</div>
+                            <div class="schedule-status">Pending</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-task">Update Slack Status</div>
+                            <div class="schedule-status">Pending</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-task">Create TikTok Caption</div>
+                            <div class="schedule-status">Pending</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-task">Organize Google Drive</div>
+                            <div class="schedule-status">Pending</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="upgrade-section">
+                    <h3>Upgrade to $5/mo—Unlock the Full Power of AI Mastery!</h3>
+                    <p>Get access to all 125 premium prompts across 25 apps. Save hours every week and transform your workflow!</p>
+                    <a href="#" class="btn btn-large">Go Premium - $5/mo</a>
+                </div>
+                
+                <!-- Referral Program Section -->
+                <div class="account-section referral-section">
+                    <h3>Refer a Friend</h3>
+                    <p>Invite Friends, Win Together! Share your referral link and earn 50 Agent Points when they sign up. They'll get 50 points too!</p>
+                    
+                    <div class="referral-link-container">
+                        <input type="text" id="referral-link" class="form-control" readonly>
+                        <button id="copy-referral" class="btn">Copy Link</button>
+                    </div>
+                    
+                    <p class="note">Points awarded after friend signs up. (Coming soon—referral tracking in development.)</p>
+                    
+                    <div class="share-progress">
+                        <h4>Share Your Progress</h4>
+                        <button id="share-progress-btn" class="btn">Share on X</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Promithius AI</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li><a href="submit.html">Submit</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Popular Apps</h3>
+                    <ul class="footer-links">
+                        <li><a href="library.html">Gmail</a></li>
+                        <li><a href="library.html">Slack</a></li>
+                        <li><a href="library.html">Instagram</a></li>
+                        <li><a href="library.html">TikTok</a></li>
+                        <li><a href="library.html">ChatGPT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="library.html">Productivity</a></li>
+                        <li><a href="library.html">Social</a></li>
+                        <li><a href="library.html">Communication</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">X (Twitter)</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Promithius AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/gamification.js"></script>
+    <script src="js/onboarding.js"></script>
+    <script src="js/referral.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            const userEmail = localStorage.getItem('userEmail');
+            const notLoggedIn = document.getElementById('not-logged-in');
+            const loggedIn = document.getElementById('logged-in');
+            
+            if (userEmail) {
+                // User is logged in
+                notLoggedIn.style.display = 'none';
+                loggedIn.style.display = 'grid';
+                
+                // Check verification status
+                const isVerified = localStorage.getItem('verified') === 'true';
+                const verificationStatus = document.getElementById('verification-status');
+                
+                if (verificationStatus) {
+                    if (!isVerified) {
+                        verificationStatus.style.display = 'block';
+                    } else {
+                        verificationStatus.style.display = 'none';
+                    }
+                }
+                
+                // Load user data
+                loadUserData();
+            } else {
+                // User is not logged in
+                notLoggedIn.style.display = 'block';
+                loggedIn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "name": "Alex",
+      "email": "alex@example.com",
+      "points": 800,
+      "level": "AI Master",
+      "streak": 12,
+      "status": "Free",
+      "verified": true,
+      "preferred_apps": ["Gmail", "Slack", "Notion"]
+    },
+    {
+      "name": "Jane",
+      "email": "jane@example.com",
+      "points": 600,
+      "level": "AI Master",
+      "streak": 8,
+      "status": "Free",
+      "verified": true,
+      "preferred_apps": ["Instagram", "TikTok", "ChatGPT"]
+    },
+    {
+      "name": "Sam",
+      "email": "sam@example.com",
+      "points": 400,
+      "level": "Agent Pro",
+      "streak": 5,
+      "status": "Free",
+      "verified": true,
+      "preferred_apps": ["Google Calendar", "Gmail", "Slack"]
+    },
+    {
+      "name": "Lee",
+      "email": "lee@example.com",
+      "points": 300,
+      "level": "Agent Pro",
+      "streak": 3,
+      "status": "Free",
+      "verified": false,
+      "preferred_apps": ["Notion", "Google Docs", "ChatGPT"]
+    },
+    {
+      "name": "Kim",
+      "email": "kim@example.com",
+      "points": 200,
+      "level": "Agent Pro",
+      "streak": 2,
+      "status": "Free",
+      "verified": false,
+      "preferred_apps": ["TikTok", "Instagram", "YouTube"]
+    }
+  ]
+}
