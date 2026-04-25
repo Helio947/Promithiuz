@@ -1,0 +1,4 @@
+interface:
+  display_name: "LinkedIn Manager"
+  short_description: "Plan, write, and optimize LinkedIn content and outreach"
+  default_prompt: "Help me manage LinkedIn content, engagement, and outreach for my goals."
